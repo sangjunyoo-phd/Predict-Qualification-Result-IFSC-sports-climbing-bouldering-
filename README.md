@@ -36,32 +36,33 @@ Recall/Precision: Missing pass/fail Qual is not critical
 ## Model Evaluation and Conclusion
 
 #### Logistic Regression Model
-
               precision    recall  f1-score   support
-        Fail       0.90      0.94      0.92       250
-        Pass       0.76      0.64      0.70        70
-    accuracy                           0.88       320
-   macro avg       0.83      0.79      0.81       320
-weighted avg       0.87      0.88      0.87       320
+
+        Fail       0.87      0.95      0.91       235
+        Pass       0.81      0.61      0.70        85
+    accuracy                           0.86       320
+   macro avg       0.84      0.78      0.80       320
+weighted avg       0.86      0.86      0.85       320
+
 
 #### Random Forest Model
-
               precision    recall  f1-score   support
-        Fail       0.89      0.90      0.90       250
-        Pass       0.64      0.61      0.63        70
+
+        Fail       0.88      0.90      0.89       235
+        Pass       0.71      0.66      0.68        85
     accuracy                           0.84       320
-   macro avg       0.77      0.76      0.76       320
-weighted avg       0.84      0.84      0.84       320
+   macro avg       0.79      0.78      0.79       320
+weighted avg       0.83      0.84      0.84       320
+
 
 #### Support Vector Classifier Model
-
               precision    recall  f1-score   support
-        Fail       0.88      0.95      0.92       250
-        Pass       0.76      0.56      0.64        70
-    accuracy                           0.87       320
-   macro avg       0.82      0.75      0.78       320
-weighted avg       0.86      0.87      0.86       320
 
+        Fail       0.85      0.97      0.91       235
+        Pass       0.87      0.54      0.67        85
+    accuracy                           0.86       320
+   macro avg       0.86      0.76      0.79       320
+weighted avg       0.86      0.86      0.84       320
 
 ## Conclusion
 Regardless of model of choice, predicting failing qual is quite accurate in terms of both precision and recall. It means the negative prediction is correct in most cases and the models catch failure cases quite accurately.
