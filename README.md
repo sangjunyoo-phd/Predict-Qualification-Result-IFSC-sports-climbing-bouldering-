@@ -7,7 +7,17 @@ This is Exploratory Machine Learning Project focusing on classification method.
 ### Data Acquisition
 Use a dataset in Kaggle. (Source: IFSC Sport Climbing Competition Results)
 
+### Scoring system
+Bouldering is scored using a combination of tops and zones to determine rank. Athletes each get four minutes to reach the top of four boulders (three in the final), with the number of attempts influencing their final score. The aim is to top the boulder in as few attempts as possible.
+
+Results are in the format Tz__. T corresponds to top, which means the climber reached the top hold and finished the problem. z corresponds to zone, which means the climber reached the zone hold and partially finished the problem. The numbers before each correspond to how many tops or zones were reached, and numbers after signify how many attempts were taken.
+
+Example: 2T4z58 means that the climber had 2 tops, 4 zones, and took 5 total attempts to get the tops, and 8 total attempts to reach the zones.
+
+Qualification: Sometimes there are multiple groups for qualifications, and when that is the case the results will be split to indicate which qualification group the climber was in.
+
 ### Feature Engineering
+
 Narrow down our interst to adult competition only.
 
 Merge Qualification, Qual1, and Qual2 columns together for the reason mentioned above.
