@@ -2,8 +2,6 @@
 
 This is Exploratory Machine Learning Project focusing on classification method.
 
-## Models with Logistic Classification (with Elasticnet regularization), Random Forest, Support Vector Classifier were made and evaluated
-
 ### Data Acquisition
 Use a dataset in Kaggle. (Source: IFSC Sport Climbing Competition Results)
 
@@ -16,55 +14,70 @@ Example: 2T4z58 means that the climber had 2 tops, 4 zones, and took 5 total att
 
 Qualification: Sometimes there are multiple groups for qualifications, and when that is the case the results will be split to indicate which qualification group the climber was in.
 
+### Exploratory Data Analytics
+Check list
+* Passing rate (Pass Qual/total)
+* Correlation to qualification result
+* Distribution of each feature
+* Presence of outliers: Deal with it at feature engineering step
+Features
+* Top score
+* Zone score
+* Top attempts
+* Zone attempts
+
+### EDA Conclusion
+* Outliers from passing qual consistently detected: There are some players who passed qualification with 0 and 1 top scores.
+* Overall features are positively correlated with passing qualification.
+
 ### Feature Engineering
+* Remove those who passed qualification with 0 and 1 top scores
+* Remove outliers detected from EDA
+* Other features to consider: top attempts - top and zone attempts - zone might also be relevant. Check this possibility.
 
-Narrow down our interst to adult competition only.
-
-Merge Qualification, Qual1, and Qual2 columns together for the reason mentioned above.
-
-Re-frame the string score data to numeric variables and check the correlation to the passing Qual.
-
-### Train / Test models
-Perform various classification methods: Logistic Regression, Tree-based mehtod, and Support Vector Classifier.
-
-### Evalutation of the model
-Consider accuracy and f1 score: Generally good score to evaluate the model.
-
-Recall/Precision: Missing pass/fail Qual is not critical
-
+### Feature Engineering Conclusion
+* About 2% of entriees were removed
+* Attempt - score: (top) no significance (zone) negatively correlated
 
 ## Model Evaluation and Conclusion
 
 #### Logistic Regression Model
-              precision    recall  f1-score   support
 
-        Fail       0.87      0.95      0.91       235
-        Pass       0.81      0.61      0.70        85
-    accuracy                           0.86       320
-   macro avg       0.84      0.78      0.80       320
-weighted avg       0.86      0.86      0.85       320
+              precision    recall  f1-score   support
+           0       0.78      0.82      0.80       118
+           1       0.79      0.74      0.76       106
+    accuracy                           0.78       224
+
+![image](https://user-images.githubusercontent.com/109259233/180701267-8d8ae20b-1500-4a65-bbea-d0c1196b8fb8.png)
 
 
 #### Random Forest Model
               precision    recall  f1-score   support
+           0       0.73      0.72      0.73       118
+           1       0.69      0.71      0.70       106
+    accuracy                           0.71       224
 
-        Fail       0.88      0.90      0.89       235
-        Pass       0.71      0.66      0.68        85
-    accuracy                           0.84       320
-   macro avg       0.79      0.78      0.79       320
-weighted avg       0.83      0.84      0.84       320
+![image](https://user-images.githubusercontent.com/109259233/180701278-0de629ec-e39a-4af1-a650-7d90517f9d02.png)
 
 
 #### Support Vector Classifier Model
               precision    recall  f1-score   support
 
-        Fail       0.85      0.97      0.91       235
-        Pass       0.87      0.54      0.67        85
-    accuracy                           0.86       320
-   macro avg       0.86      0.76      0.79       320
-weighted avg       0.86      0.86      0.84       320
+           0       0.76      0.83      0.79       118
+           1       0.79      0.71      0.75       106
+    accuracy                           0.77       224
+
+![image](https://user-images.githubusercontent.com/109259233/180701299-772f9f17-acac-48ba-9ca2-a15e4802cc0c.png)
+
 
 ## Conclusion
-Regardless of model of choice, predicting failing qual is quite accurate in terms of both precision and recall. It means the negative prediction is correct in most cases and the models catch failure cases quite accurately.
+* Logistic Regression model performed marginally better than Support Vector Classifier and Random Forest. It will predict the results with ~ 80% accuracy.
+* The "top", "zone" are the most two stongest features to predict the Qualification results. Top attempts - Top and Zone attempts - Zone are more relavant features than just "attempts"
 
-Given that the accuracy is a good parameter to evaluate the overall performance, I found no significant difference between performance of Logistic model and Support Vector classification model. I would choose logistic model to predict one's qualification result because it is slightly better in performance.
+	Importance
+top	0.695939
+zone	0.413409
+top attempts	0.045850
+zone attempts	0.000000
+attempts-zone	-0.068389
+attempts-top	-0.087810
