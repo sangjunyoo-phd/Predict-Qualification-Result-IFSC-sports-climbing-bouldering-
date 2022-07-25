@@ -20,6 +20,7 @@ Check list
 * Correlation to qualification result
 * Distribution of each feature
 * Presence of outliers: Deal with it at feature engineering step
+
 Features
 * Top score
 * Zone score
