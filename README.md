@@ -40,7 +40,7 @@ Features
 * About 2% of entriees were removed
 * Attempt - score: (top) no significance (zone) negatively correlated
 
-## Model Evaluation and Conclusion
+## Model Evaluation
 
 #### Logistic Regression Model
 
